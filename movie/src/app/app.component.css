@@ -1,0 +1,41 @@
+/* Page title styling */
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 32px;
+  color: #2c3e50;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navigation bar container */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  background-color: #007bff;
+  padding: 12px 0;
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+/* Navigation links */
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 16px;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect */
+nav a:hover {
+  background-color: #0056b3;
+}
+
+/* Highlight the active route */
+nav a.router-link-active {
+  background-color: #0056b3;
+  font-weight: bold;
+}

@@ -1,0 +1,36 @@
+<h2>Add a Movie</h2>
+
+<form #movieForm="ngForm" (ngSubmit)="submitMovie()" novalidate>
+
+  <div class="form-row">
+    <label for="name">Movie Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="movie.name" required>
+    <span class="required">*</span>
+  </div>
+
+  <div class="form-row">
+    <label for="casting">Casting:</label>
+    <input type="text" id="casting" name="casting" [(ngModel)]="movie.casting" required>
+    <span class="required">*</span>
+  </div>
+
+  <div class="form-row">
+    <label for="releaseDate">Release Date:</label>
+    <input type="date" id="releaseDate" name="releaseDate" [(ngModel)]="movie.releaseDate" required>
+    <span class="required">*</span>
+  </div>
+
+  <div class="form-row">
+    <label for="director">Director:</label>
+    <input type="text" id="director" name="director" [(ngModel)]="movie.director" required>
+    <span class="required">*</span>
+  </div>
+
+  <div class="form-row">
+    <label for="producer">Producer:</label>
+    <input type="text" id="producer" name="producer" [(ngModel)]="movie.producer" required>
+    <span class="required">*</span>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>

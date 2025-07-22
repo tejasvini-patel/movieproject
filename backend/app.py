@@ -10,7 +10,7 @@ CORS(app)
 db = pymysql.connect(host="localhost", user="root", passwd="Tnp@7", db="movie_database")
 cursor = db.cursor()
 
-# ✅ GET all movies
+# GET all movies
 @app.route('/api/movies', methods=['GET'])
 def get_movies():
     cursor.execute("SELECT * FROM movies")
@@ -27,28 +27,6 @@ def get_movies():
         })
     return jsonify(movies)
 
-# ✅ Add a new movie
-# @app.route('/api/movies', methods=['POST'])
-# def add_movie():
-#     data = request.json
-#     print("Received data:", data)
-#     # Add checks for required fields
-#     required_fields = ['name', 'casting', 'releaseDate', 'director', 'producer']
-#     for field in required_fields:
-#         if field not in data:
-#             return jsonify({"error": f"Missing field {field}"}), 400
-
-#     try:
-#         cursor.execute(
-#             "INSERT INTO movies (name, casting, releaseDate, director, producer) VALUES (%s, %s, %s, %s, %s)",
-#             (data['name'], data['casting'], data['releaseDate'], data['director'], data['producer'])
-#         )
-#         db.commit()
-#     except Exception as e:
-#         print("DB Insert Error:", e)
-#         return jsonify({"error": "Database insert failed"}), 500
-
-#     return jsonify({"message": "Movie added"}), 201
 
 @app.route('/api/movies', methods=['POST'])
 def add_movie():
@@ -67,7 +45,7 @@ def add_movie():
         return jsonify({"error": str(e)}), 500
 
 
-# ✅ Delete a movie
+# Delete a movie
 @app.route('/api/movies/<int:id>', methods=['DELETE'])
 def delete_movie(id):
     cursor.execute("DELETE FROM movies WHERE id = %s", (id,))

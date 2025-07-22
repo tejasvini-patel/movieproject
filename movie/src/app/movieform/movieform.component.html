@@ -1,35 +1,62 @@
+<style>
+  .form-row {
+    margin-bottom: 16px;
+  }
+
+  .required {
+    color: red;
+    margin-left: 2px;
+  }
+
+  form {
+    max-width: 400px;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: bold;
+  }
+
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 10px 16px;
+  }
+</style>
+
 <h2>Add a Movie</h2>
 
 <form #movieForm="ngForm" (ngSubmit)="submitMovie()" novalidate>
 
   <div class="form-row">
-    <label for="name">Movie Name:</label>
+    <label for="name">Movie Name<span class="required">*</span></label>
     <input type="text" id="name" name="name" [(ngModel)]="movie.name" required>
-    <span class="required">*</span>
   </div>
 
   <div class="form-row">
-    <label for="casting">Casting:</label>
+    <label for="casting">Casting<span class="required">*</span></label>
     <input type="text" id="casting" name="casting" [(ngModel)]="movie.casting" required>
-    <span class="required">*</span>
   </div>
 
   <div class="form-row">
-    <label for="releaseDate">Release Date:</label>
+    <label for="releaseDate">Release Date<span class="required">*</span></label>
     <input type="date" id="releaseDate" name="releaseDate" [(ngModel)]="movie.releaseDate" required>
-    <span class="required">*</span>
   </div>
 
   <div class="form-row">
-    <label for="director">Director:</label>
+    <label for="director">Director<span class="required">*</span></label>
     <input type="text" id="director" name="director" [(ngModel)]="movie.director" required>
-    <span class="required">*</span>
   </div>
 
   <div class="form-row">
-    <label for="producer">Producer:</label>
+    <label for="producer">Producer<span class="required">*</span></label>
     <input type="text" id="producer" name="producer" [(ngModel)]="movie.producer" required>
-    <span class="required">*</span>
   </div>
 
   <button type="submit">Submit</button>

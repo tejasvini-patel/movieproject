@@ -21,9 +21,7 @@ export class MovielistComponent implements OnInit {
     this.movieService.getMovies().subscribe(data => this.movies = data);
   }
 
-  // deleteMovie(id: number) {
-  //   this.movieService.deleteMovie(id).subscribe(() => this.loadMovies());
-  // }
+
   getMovies() {
     this.movieService.getMovies().subscribe({
       next: (data) => {

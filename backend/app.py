@@ -31,18 +31,22 @@ def get_movies():
 @app.route('/api/movies', methods=['POST'])
 def add_movie():
     try:
-        data = request.json
-        print("📦 Received data:", data)  # Debug print
+        data = request.get_json()
+        print("📦 Received data:", data)
 
         cursor.execute(
             "INSERT INTO movies (name, casting, release_date, director, producer) VALUES (%s, %s, %s, %s, %s)",
             (data['name'], data['casting'], data['releaseDate'], data['director'], data['producer'])
         )
         db.commit()
-        return jsonify({"message": "Movie added"}), 201
+        return jsonify({"message": "Movie added successfully"}), 201
+
     except Exception as e:
         print("❌ Error in add_movie:", e)
-        return jsonify({"error": str(e)}), 500
+        return jsonify({"error": "Failed to add movie"}), 500
+
+
+
 
 
 # Delete a movie
